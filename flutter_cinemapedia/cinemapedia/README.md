@@ -3,4 +3,8 @@
 A new Flutter project.
 
 
-.env require key from moviedb
+1. .env require key from moviedb
+2. Cambios en la entidad, ejecutar comando
+```
+flutter pub run build_runner build
+```

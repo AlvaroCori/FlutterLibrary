@@ -1,11 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomButtomNavigation extends StatelessWidget {
-  const CustomButtomNavigation({super.key});
+  final int currentIndex;
+  const CustomButtomNavigation({super.key, this.currentIndex = 0});
+
+  void onItemTappedA(BuildContext context, int index){
+    switch (index){
+      case 0:
+        context.go("/home/0");
+      break;
+      case 1:
+        context.go("/home/1");
+      break;
+      case 2:
+        context.go("/home/2");
+      break;
+    }
+  }
+
+  int getCurrentIndex(BuildContext context){
+    final String location = GoRouterState.of(context).matchedLocation;
+    switch (location){
+      case "/":
+        return 0;
+      case "/categories":
+        return 1;
+      case "/favorites":
+        return 2;
+      default:
+        return 0;
+    }
+  }
+
+  void onItemTapped(BuildContext context, int index){
+    switch (index){
+      case 0:
+        context.go("/");
+      break;
+      case 1:
+        context.go("/categories");
+      break;
+      case 2:
+        context.go("/favorites");
+      break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      elevation: 0,
+      currentIndex: getCurrentIndex(context),
+      onTap: (value){
+        onItemTapped(context, value);
+      },
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home_max),
