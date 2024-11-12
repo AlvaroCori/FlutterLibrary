@@ -1,9 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_push/domain/entities/push_message.dart';
-import 'package:flutter_push/main.dart';
 import 'package:flutter_push/presentation/blocs/notifications/notifications_bloc.dart';
 
 class DetailsScreen extends StatelessWidget {
